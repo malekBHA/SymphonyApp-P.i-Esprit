@@ -1,0 +1,17 @@
+{% extends 'front/base.html.twig' %}
+
+{# fichepatient.html.twig #}
+
+
+
+
+{% block body %}
+
+<main id="main">
+<br> <br> <br><br> <br>
+    {{ include('doctor/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('doctor_liste_index') }}"class="btn btn-primary"style="background-color:#ec729c;">back to list</a>
+
+    {{ include('doctor/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'front/base.html.twig' %}
+
+{# fichepatient.html.twig #}
+
+
+
+{% block body %}
+
+<main id="main">
+<br> <br> <br><br> <br><br>
+   <center><h2>Book Your Appointment</h2></center>
+    {{ include('rendez_vous/_form.html.twig') }}
+{% for flashMessage in app.flashes('error') %}
+        <div class="alert alert-danger" role="alert">
+            {{ flashMessage }}
+        </dziv>
+    {% endfor %}
+{% endblock %}

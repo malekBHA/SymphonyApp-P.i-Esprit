@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Publication Notification</title>
+</head>
+<body>
+    <h1>New Publication Created</h1>
+
+    <p>Hello !</p>
+
+    <p>A new publication has been created by {{ publication.getIdUser().getNom() }}.</p>
+
+    <p>Publication Details:</p>
+    <ul>
+        <li>Title: {{ publication.getTitre() }}</li>
+        <li>Content: {{ publication.getDescription() }}</li>
+       
+    </ul>
+
+    <p>Thank you!</p>
+</body>
+</html>

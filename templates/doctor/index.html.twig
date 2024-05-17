@@ -1,0 +1,55 @@
+{# rendezvous.html.twig #}
+
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+
+
+<main>
+ <br><br><br><br><br>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 10%;">RDV_Id</th>
+            <th style="width: 10%;">DOC_Id</th>
+            <th style="width: 30%;">Date</th>
+            <th style="width: 20%;">Lien</th>
+            <th style="width: 10%;">AV</th>
+            <th style="width: 20%;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rendez_vou in rendez_vouses %}
+       <tr>
+    <td>{{ rendez_vou.rdvId }}</td>
+     <td>{{ rendez_vou.doctor.id }}</td>
+    <td>{{ rendez_vou.date ? rendez_vou.date|date('Y-m-d') : '' }}</td>
+    <td>{{ rendez_vou.lien }}</td>
+   
+    <td>{{ rendez_vou.isIsAvailable}}</td>
+    <td>
+ <form action="{{ path('liste_doctor_delete', {'id': rendez_vou.rdvId}) }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ rendez_vou.rdvId) }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Cancel </button>
+                        </form>  
+                        
+                        
+                        
+                          </td>
+</tr>
+
+        {% else %}
+        <tr>
+            <td colspan="5">No records found</td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+
+    <a href="{{ path('app_r_d_v_new') }}" class="btn btn-success">Create New</a>
+</main>
+
+
+{% endblock %}
